@@ -31,14 +31,27 @@ window.addEventListener("load",function(){
       loader.style.display="none";
 })
 
+// telegram bot
+const form = document.querySelector("#form")
 
-    const username = document.getElementById('name').value;
-    const email=document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+form.addEventListener("submit",(e)=>{
+    e.preventDefault();
 
-    const telegramToken = '6958858749:AAG4ROlK27c4w-iPugbeKQq7iq9mmVQ7lhk';
-    const chatId = '1625414298';
-    const text = `Name: ${username}\n Email: ${email} Message: ${message}`;
+  var name=document.querySelector("#name").value;
+  var email=document.querySelector("#email").value;
+  var message=document.querySelector("#message").value;
+
+    var token = '6958858749:AAG4ROlK27c4w-iPugbeKQq7iq9mmVQ7lhk';
+    var chat_id="-4289545610";
+    var my_text=`Name is : ${name} Email is : ${email} Message is : ${message}`
+    var url=`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${my_text}/`
+
+    let api=new XMLHttpRequest();
+    api.open("GET",url,true);
+    api.send()
+    console.log("message was send succesfully")
+});
+
 
    
 

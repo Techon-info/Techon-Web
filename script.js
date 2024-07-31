@@ -34,8 +34,8 @@ window.addEventListener("load",function(){
 // telegram bot
 const form = document.querySelector("#form")
 
-form.addEventListener("submit",(e)=>{
-    e.preventDefault();
+form.addEventListener("submit",()=>{
+    
 
   var name=document.querySelector("#name").value;
   var email=document.querySelector("#email").value;
@@ -50,6 +50,7 @@ form.addEventListener("submit",(e)=>{
     api.open("GET",url,true);
     api.send()
     console.log("message was send succesfully")
+    alert("Sucessfully send ")
 });
 
 
